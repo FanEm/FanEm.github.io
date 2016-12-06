@@ -40,6 +40,15 @@ body {
   display: block;
 }
 
+#footer a {
+  color: #111;
+  text-align: left;
+  text-decoration: none;
+  /*height: 30px;*/
+  line-height: 40px;
+  display: inline-block;
+}
+
 #header #selected {
   color: #000;
 }
@@ -56,7 +65,7 @@ body {
 }
 
 #header span {
-  padding: 0 1vh;
+  padding: 0 1vw;
 }
 
 /* HTML5 display definitions
