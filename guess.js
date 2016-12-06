@@ -5,8 +5,8 @@ function playGuess() {
     var answer = parseInt(Math.random() * 100);
     var count = 0;
     while (true) {
-        var userAnswer = prompt('Enter the number from 1 to 100, for exit press q');
-        if (userAnswer == 'q') {
+        var userAnswer = prompt('Enter the number from 1 to 100');
+        if (userAnswer == null) {
             break;
         }
         userAnswer = parseInt(userAnswer);

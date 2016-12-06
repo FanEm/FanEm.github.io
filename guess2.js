@@ -6,8 +6,8 @@ function playGuess2() {
     var answer = parseInt(Math.random() * 100);
     var player = 1;
     while (true) {
-        var userAnswer = prompt("Enter the number from 1 to 100. " + player + " player's turn  \n Press 'q' for exit");
-        if (userAnswer == 'q') {
+        var userAnswer = prompt("Enter the number from 1 to 100. " + player + " player's turn");
+        if (userAnswer == null) {
             break;
         }
         userAnswer = parseInt(userAnswer);
