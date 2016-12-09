@@ -1,11 +1,11 @@
 /**
  * Created by fanem on 30.11.16.
  */
-
 function playGuess() {
+
     var answer = parseInt(Math.random() * 100);
     var count = 0;
-    var userAnswer = document.getElementById('usrNumber').value;
+    var userAnswer = document.getElementById("numberUser").innerHTML;
     userAnswer = parseInt(userAnswer);
 
     if (userAnswer > answer) {
@@ -20,7 +20,7 @@ function playGuess() {
         break;
     } else {
         alert('You must enter the number');
-    }
+    }*/
     /*    userAnswer = parseInt(userAnswer);*/
 
 
@@ -46,4 +46,5 @@ function playGuess() {
      alert('You must enter the number');
      }
      */
+}
 }

@@ -64,7 +64,7 @@
     <div class="starter-template">
         <h1>Guess</h1>
     </div>
-    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+   <!-- <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <!-- Example row of columns -->
     <div class="row featurette">
         <div class="col-6 col-sm-6 col-lg-6">
@@ -91,7 +91,17 @@
             <p>
                 You must guess the number using the least amount of attemps.
             </p>
-            <a> <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm" onclick="playGuess()">Start game</button></a>
+            <a> <button type="button" class="btn btn-lg btn-primary" onclick="($('#game').removeAttr('hidden'))">Start game</button></a>
+            <div id="game" hidden>
+                <br><br>
+                <p>
+                    Enter the number from 1 to 100
+                </p>
+                <input type="text" id="numberUser" onkeyup="($('#submit').removeAttr('disabled'))">
+                <br><br>
+                <a> <button type="button" class="btn btn-lg btn-primary" id="submit" onclick="playGuess();" disabled>Answer</button></a>
+                <br>
+            </div>
         </div>
     </div>
     <br>
