@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Puzzle">
+    <meta name="author" content="FanEm">
+
+    <title>Puzzle</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/starter-template.css" rel="stylesheet">
+    <link href="css/sticky-footer.css" rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+
+    <script type="text/javascript" src="js/puzzle.js"></script>
+
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Personal site</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="bootindex.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Games <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bootpuzzle.html">Puzzle</a></li>
+                        <li><a href="bootguess.html">Guess</a></li>
+                        <li><a href="bootguess2.html">Guess multiplayer</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Studying <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bootwords.html">Word</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</div>
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="container">
+    <div class="starter-template">
+        <h1>Puzzle</h1>
+        <h4>Guess a puzzle, friend: </h4>
+    </div>
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4>Congratulations</h4>
+                    <div id="cnt"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--    <div class="alert alert-success alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> This alert box could indicate a successful or positive action.
+    </div>-->
+    <!-- Example row of columns -->
+    <div class="row featurette">
+        <div class="col-6 col-sm-6 col-lg-4">
+            <p>
+                What has roots as nobody sees,<br>
+                Is taller than trees,<br>
+                Up, up it goes,<br>
+                And yet never grows?
+            </p>
+            <input type="text" id="userAnswer1" onkeyup='checkInputs()'>
+            <br><br>
+            <p>
+                Thirty white horses on a red hill,<br>
+                First they champ,<br>
+                Then they stamp,<br>
+                Then they stand still.
+            </p>
+            <input type="text" id="userAnswer2" onkeyup='checkInputs()'>
+            <br><br>
+        </div>
+        <div class="col-6 col-sm-6 col-lg-4">
+            <p>
+                Voiceless it cries, <br>
+                Wingless flutters,<br>
+                Toothless bites,<br>
+                Mouthless mutters.
+            </p>
+            <input type="text" id="userAnswer3" onkeyup='checkInputs()'>
+            <br><br>
+            <p>
+                A live without breath,<br>
+                As cold as death;<br>
+                Never thirsty, ever drinking,<br>
+                All in mail never clinking.
+            </p>
+            <input type="text" id="userAnswer4" onkeyup='checkInputs()'>
+            <br><br>
+        </div>
+
+        <div class="col-6 col-sm-6 col-lg-4">
+            <p>
+                This thing all things devours:<br>
+                Birds, beasts, trees, flowers;<br>
+                Gnaws iron, bites steel;<br>
+                Grinds hard stones to meal;<br>
+                Slays king, ruins town,<br>
+                And beats high mountain down.
+            </p>
+            <input type="text" id="userAnswer5" onkeyup='checkInputs()'>
+            <br><br>
+            <p>
+                A box without hinges, key, or lid,<br>
+                Yet golden treasure inside is hid.
+            </p>
+            <input type="text" id="userAnswer6" onkeyup='checkInputs()'>
+        </div>
+    </div>
+    <br><br>
+    <a> <button type="button" class="btn btn-lg btn-primary" id="submit" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="playPuzzle();" disabled>Answer</button></a>
+</div>
+
+<div id="footer">
+    <div>
+        <p class="text-muted">Copyright 2016</p>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
