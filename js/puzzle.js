@@ -8,12 +8,12 @@ function askQuestion(textBoxId, answer) {
         removeAttr = document.getElementById(textBoxId).getElementsByClassName('glyphicon')[0];
         userAnswer.value = userAnswer.value.toLowerCase();
     if (userAnswer.value == answer) {
-        removeAttr.removeAttribute("style");
         removeAttr.className = 'glyphicon glyphicon-ok';
+        removeAttr.removeAttribute("style");
         count++;
     } else {
-        removeAttr.removeAttribute("style");
         removeAttr.className = 'glyphicon glyphicon-remove';
+        removeAttr.removeAttribute("style");
     }
     playAgain.removeAttribute('style')
 }
