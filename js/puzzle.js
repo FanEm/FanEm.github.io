@@ -4,35 +4,18 @@
 var count;
 function askQuestion(textBoxId, answer) {
     var userAnswer = document.getElementById(textBoxId).getElementsByTagName("input")[0],
-        removeAttr = document.getElementById(textBoxId).getElementsByClassName('glyphicon-ok')[0];
+        playAgain = document.getElementById('repeat'),
+        removeAttr = document.getElementById(textBoxId).getElementsByClassName('glyphicon')[0];
         userAnswer.value = userAnswer.value.toLowerCase();
     if (userAnswer.value == answer) {
         removeAttr.removeAttribute("style");
+        removeAttr.className = 'glyphicon glyphicon-ok';
         count++;
     } else {
         removeAttr.removeAttribute("style");
         removeAttr.className = 'glyphicon glyphicon-remove';
     }
-    userAnswer.value = '';
-}
-
-function removeGlyph() {
-
-}
-
-function checkInputs() {
-    var userAnswer1 = $('#userAnswer1').val();
-    var userAnswer2 = $('#userAnswer2').val();
-    var userAnswer3 = $('#userAnswer3').val();
-    var userAnswer4 = $('#userAnswer4').val();
-    var userAnswer5 = $('#userAnswer5').val();
-    var userAnswer6 = $('#userAnswer6').val();
-
-    if(userAnswer1.length != 0 && userAnswer2.length != 0 && userAnswer3.length != 0 && userAnswer4.length != 0 && userAnswer5.length != 0 && userAnswer6.length != 0) {
-        $('#submit').removeAttr('disabled');
-    } else {
-        $('#submit').attr('disabled', 'disabled');
-    }
+    playAgain.removeAttribute('style')
 }
 
 function playPuzzle() {
@@ -45,4 +28,40 @@ function playPuzzle() {
     askQuestion('6', 'egg');
     var myP = document.getElementById("cnt");
     myP.innerHTML = 'Number of correct answers: ' + count;
+}
+
+function newGameRemoveAttribute(textBoxId) {
+    var userAnswer = document.getElementById(textBoxId).getElementsByTagName("input")[0],
+        playAgain = document.getElementById('repeat'),
+        removeAttr = document.getElementById(textBoxId).getElementsByClassName('glyphicon')[0];
+    userAnswer.value = '';
+    playAgain.setAttribute('style', "visibility: hidden");
+    removeAttr.setAttribute('style', "visibility: hidden");
+}
+
+function newGame() {
+    newGameRemoveAttribute('1');
+    newGameRemoveAttribute('2');
+    newGameRemoveAttribute('3');
+    newGameRemoveAttribute('4');
+    newGameRemoveAttribute('5');
+    newGameRemoveAttribute('6');
+    var removeAttr = document.getElementById('submit');
+    removeAttr.setAttribute('disabled', 'disabled');
+}
+
+function checkInputs() {
+    var usAns1 = document.getElementById('userAnswer1').value,
+        usAns2 = document.getElementById('userAnswer2').value,
+        usAns3 = document.getElementById('userAnswer3').value,
+        usAns4 = document.getElementById('userAnswer4').value,
+        usAns5 = document.getElementById('userAnswer5').value,
+        usAns6 = document.getElementById('userAnswer6').value,
+        removeAttr = document.getElementById('submit');
+
+    if(usAns1.length != 0 && usAns2.length != 0 && usAns3.length != 0 && usAns4.length != 0 && usAns5.length != 0 && usAns6.length != 0) {
+        removeAttr.removeAttribute("disabled");
+    } else {
+        removeAttr.setAttribute('disabled', 'disabled');
+    }
 }

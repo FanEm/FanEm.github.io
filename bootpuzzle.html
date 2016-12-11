@@ -153,13 +153,16 @@
                 Yet golden treasure inside is hid.
             </p>
             <div id="6">
-                <input type="text" id="userAnswer6" onkeyup='checkInputs()' onclick="">
+                <input type="text" id="userAnswer6" onkeyup='checkInputs()'>
                 <span class="glyphicon glyphicon-ok" style="visibility: hidden" ></span>
             </div>
         </div>
     </div>
     <br><br>
-    <a> <button type="button" class="btn btn-lg btn-primary" id="submit" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="playPuzzle();" disabled>Answer</button></a>
+    <a> <button type="button" class="btn btn-primary" id="submit" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="playPuzzle();" disabled>Answer</button></a>
+    <button type="button" class="btn btn-default" id="repeat" style="visibility: hidden" onclick="newGame()">
+        <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Play again
+    </button>
     <br><br>
 </div>
 
