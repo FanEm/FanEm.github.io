@@ -67,6 +67,17 @@
     <div class="starter-template">
         <h1>Guess multiplayer</h1>
     </div>
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 id="congrats"></h4>
+                    <div id="cnt"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Example row of columns -->
     <div class="row featurette">
         <div class="col-6 col-sm-6 col-lg-6">
@@ -76,7 +87,17 @@
             <p>
                 Two players in turn guess the number using the least amount of attemps. Winner is the one who first guesses.
             </p>
-            <a> <button type="button" class="btn btn-lg btn-primary" href="#" onclick="playGuess2();">Start game</button></a>
+            <a> <button type="button" class="btn btn-lg btn-primary" id="strtGame" onclick="startGame()">Start game</button></a>
+            <div id="game" hidden>
+                <br><br>
+                <p id="player">
+                    Enter the number from 1 to 100. 1 player's turn.
+                </p>
+                <input type="text" id="numberUser" autocomplete="off" autofocus onkeyup="($('#submit').removeAttr('disabled'))">
+                <br><br>
+                <a> <button type="button" class="btn btn-lg btn-primary" id="submit" data-toggle="modal" data-target=".bs-example-modal-sm" onclick="playGuess()" disabled>Answer</button></a>
+                <br>
+            </div>
         </div>
     </div>
     <br>

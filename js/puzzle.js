@@ -3,12 +3,21 @@
  */
 var count;
 function askQuestion(textBoxId, answer) {
-    var userAnswer = document.getElementById(textBoxId).value;
-        userAnswer = userAnswer.toLowerCase();
-    if (userAnswer == answer) {
+    var userAnswer = document.getElementById(textBoxId).getElementsByTagName("input")[0],
+        removeAttr = document.getElementById(textBoxId).getElementsByClassName('glyphicon-ok')[0];
+        userAnswer.value = userAnswer.value.toLowerCase();
+    if (userAnswer.value == answer) {
+        removeAttr.removeAttribute("style");
         count++;
+    } else {
+        removeAttr.removeAttribute("style");
+        removeAttr.className = 'glyphicon glyphicon-remove';
     }
-    document.getElementById(textBoxId).value = '';
+    userAnswer.value = '';
+}
+
+function removeGlyph() {
+
 }
 
 function checkInputs() {
@@ -28,17 +37,12 @@ function checkInputs() {
 
 function playPuzzle() {
     count = 0;
-    askQuestion('userAnswer1', 'mountain');
-    askQuestion('userAnswer2', 'teeth');
-    askQuestion('userAnswer3', 'wind');
-    askQuestion('userAnswer4', 'fish');
-    askQuestion('userAnswer5', 'time');
-    askQuestion('userAnswer6', 'egg');
+    askQuestion('1', 'mountain');
+    askQuestion('2', 'teeth');
+    askQuestion('3', 'wind');
+    askQuestion('4', 'fish');
+    askQuestion('5', 'time');
+    askQuestion('6', 'egg');
     var myP = document.getElementById("cnt");
-//получить HTML содержимое элемента, имеющего id="myP"
-    myP.innerHTML;
-//изменить HTML содержимое элемента, имеющего id="myP"
     myP.innerHTML = 'Number of correct answers: ' + count;
-    /*alert('Number of correct answers: ' + count);*/
-    /*document.getElementsById('cnt').innerText = count;*/
 }
