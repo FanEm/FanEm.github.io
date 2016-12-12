@@ -3,12 +3,6 @@
  */
 var count;
 
-var iconOk = document.createElement('span');
-iconOk.className = 'glyphicon glyphicon-ok';
-
-var iconError = document.createElement('span');
-iconError.className = 'glyphicon glyphicon-remove';
-
 var btn = document.createElement ('input');
 btn.type = 'button';
 btn.id = 'btnPlayAgain';
@@ -28,9 +22,14 @@ btn.onclick = function newGame() {
 };
 
 function askQuestion(textBoxId, answer) {
+    var iconOk = document.createElement('span');
+    iconOk.className = 'glyphicon glyphicon-ok';
+
+    var iconError = document.createElement('span');
+    iconError.className = 'glyphicon glyphicon-remove';
     var userAnswer = document.getElementById(textBoxId).getElementsByTagName("input")[0],
-        addIconOk = document.getElementById(textBoxId)[0],
-        addIconError = document.getElementById(textBoxId)[0];
+        addIconOk = document.getElementById(textBoxId),
+        addIconError = document.getElementById(textBoxId);
         userAnswer.value = userAnswer.value.toLowerCase();
     if (userAnswer.value == answer) {
         addIconOk.appendChild(iconOk);
