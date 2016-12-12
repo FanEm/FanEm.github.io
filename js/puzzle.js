@@ -50,6 +50,8 @@ function playPuzzle() {
     askQuestion('6', 'egg');
     var myP = document.getElementById("cnt");
     myP.innerHTML = 'Number of correct answers: ' + count;
+    var removeAttr = document.getElementById('submit');
+    removeAttr.setAttribute('disabled', 'disabled');
 }
 
 function newGameRemoveAttribute(textBoxId) {
