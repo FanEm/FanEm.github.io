@@ -5,38 +5,35 @@ var answer = parseInt(Math.random() * 100);
 var count = 1;
 var player = 2;
 function playGuess() {
-    var userAnswer = document.getElementById("numberUser").value;
+    var userAnswer = document.getElementById("numberUser").value,
+        newGame = document.getElementById('submit'),
+        turn = document.getElementById('player');
     userAnswer = parseInt(userAnswer);
-    var turn = document.getElementById('player');
     if (answer === null) {
         document.getElementById('numberUser').value = '';
         answer = parseInt(Math.random() * 100);
-        var newGame = document.getElementById('submit');
         newGame.innerHTML = 'Answer';
         count = 1;
+        player = 1;
         turn.innerHTML = "Enter the number from 1 to 100. " + player + " player's turn.";
-        $('#submit').removeAttr('data-toggle');
+        newGame.removeAttribute("data-toggle");
     } else {
-        $('#submit').attr('data-toggle','modal');
+        var checkInput = document.getElementById("cnt");
+        newGame.setAttribute('data-toggle', 'modal');
         turn.innerHTML = "Enter the number from 1 to 100. " + player + " player's turn.";
         if (userAnswer > answer) {
-            var much = document.getElementById("cnt");
-            much.innerHTML = 'Too much';
+            checkInput.innerHTML = 'Too much';
         } else if (userAnswer < answer) {
-            var low = document.getElementById("cnt");
-            low.innerHTML = 'Too low';
+            checkInput.innerHTML = 'Too low';
         } else if (userAnswer == answer) {
             var right = document.getElementById('congrats');
             right.innerHTML = 'Congratulations';
-            var right1 = document.getElementById("cnt");
             player = player == 2 ? 1 : 2;
-            right1.innerHTML = 'You are right. Player ' + player + ' win. \n You guessed using ' + count + ' attempts';
-            var right2 = document.getElementById('submit');
-            right2.innerHTML = 'Play again';
+            checkInput.innerHTML = 'You are right. Player ' + player + ' win. \n You guessed using ' + count + ' attempts';
+            newGame.innerHTML = 'Play again';
             answer = null;
         } else {
-            var nn = document.getElementById("cnt");
-            nn.innerHTML = 'You must enter the number';
+            checkInput.innerHTML = 'You must enter the number';
         }
         if (player == 1) {
             player = 2;

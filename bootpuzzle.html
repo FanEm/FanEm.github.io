@@ -79,10 +79,6 @@
             </div>
         </div>
     </div>
-<!--    <div class="alert alert-success alert-dismissable">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Success!</strong> This alert box could indicate a successful or positive action.
-    </div>-->
     <!-- Example row of columns -->
     <div class="row featurette">
         <div class="col-6 col-sm-6 col-lg-4">
@@ -94,7 +90,6 @@
             </p>
             <div id="1">
                 <input type="text" autofocus id="userAnswer1" onkeyup='checkInputs()'>
-                <span class="glyphicon glyphicon-ok" style="visibility: hidden"></span>
             </div>
             <br><br>
             <p>
@@ -105,7 +100,6 @@
             </p>
             <div id="2">
                 <input type="text" id="userAnswer2" onkeyup='checkInputs()'>
-                <span class="glyphicon glyphicon-ok" style="visibility: hidden"></span>
             </div>
             <br><br>
         </div>
@@ -118,7 +112,6 @@
             </p>
             <div id="3">
                 <input type="text" id="userAnswer3" onkeyup='checkInputs()'>
-                <span class="glyphicon glyphicon-ok" style="visibility: hidden"></span>
             </div>
                 <br><br>
             <p>
@@ -129,7 +122,6 @@
             </p>
             <div id="4">
                 <input type="text" id="userAnswer4" onkeyup='checkInputs()'>
-                <span class="glyphicon glyphicon-ok" style="visibility: hidden"></span>
             </div>
             <br><br>
         </div>
@@ -145,7 +137,6 @@
             </p>
             <div id="5">
                 <input type="text" id="userAnswer5" onkeyup='checkInputs()'>
-                <span class="glyphicon glyphicon-ok" style="visibility: hidden"></span>
             </div>
             <br><br>
             <p>
@@ -154,15 +145,13 @@
             </p>
             <div id="6">
                 <input type="text" id="userAnswer6" onkeyup='checkInputs()'>
-                <span class="glyphicon glyphicon-ok" style="visibility: hidden" ></span>
             </div>
         </div>
     </div>
     <br><br>
-    <a> <button type="button" class="btn btn-primary" id="submit" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="playPuzzle();" disabled>Answer</button></a>
-    <button type="button" class="btn btn-default" id="repeat" style="visibility: hidden" onclick="newGame()">
-        <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Play again
-    </button>
+    <div id="buttonPlay">
+        <a> <button type="button" class="btn btn-primary" id="submit" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="playPuzzle();" disabled>Answer</button></a>
+    </div>
     <br><br>
 </div>
 

@@ -4,19 +4,19 @@
 var answer = parseInt(Math.random() * 100);
 var count = 1;
 function playGuess() {
-    var right = document.getElementById('congrats');
-    var userAnswer = document.getElementById("numberUser").value;
+    var right = document.getElementById('congrats'),
+        userAnswer = document.getElementById("numberUser").value,
+        newGame = document.getElementById('submit');
     userAnswer = parseInt(userAnswer);
     if (answer === null) {
         document.getElementById('numberUser').value = '';
         right.innerHTML = '';
         count = 1;
         answer = parseInt(Math.random() * 100);
-        var newGame = document.getElementById('submit');
         newGame.innerHTML = 'Answer';
-        $('#submit').removeAttr('data-toggle');
+        newGame.removeAttribute("data-toggle");
     } else {
-        $('#submit').attr('data-toggle','modal');
+        newGame.setAttribute('data-toggle', 'modal');
         var check = document.getElementById("cnt");
         if (userAnswer > answer) {
             check.innerHTML = 'Too much';
@@ -47,5 +47,15 @@ function startGame() {
     } else {
         game.setAttribute("hidden", "hidden");
         vis.innerHTML = 'Start game';
+    }
+}
+
+function checkInputs() {
+    var usAns = document.getElementById('numberUser').value,
+        removeAttr = document.getElementById('submit');
+    if(usAns.length != 0) {
+        removeAttr.removeAttribute("disabled");
+    } else {
+        removeAttr.setAttribute('disabled', 'disabled');
     }
 }

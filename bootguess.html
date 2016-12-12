@@ -108,7 +108,7 @@
                 <p>
                     Enter the number from 1 to 100
                 </p>
-                <input type="text" id="numberUser" autocomplete="off" autofocus onkeyup="($('#submit').removeAttr('disabled'))">
+                <input type="text" id="numberUser" autocomplete="off" autofocus onkeyup="checkInputs()">
                 <br><br>
                 <a> <button type="button" class="btn btn-lg btn-primary" id="submit" data-toggle="modal" data-target=".bs-example-modal-sm" onclick="playGuess();" disabled>Answer</button></a>
                 <br>
