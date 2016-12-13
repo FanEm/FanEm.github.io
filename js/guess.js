@@ -2,60 +2,69 @@
  * Created by fanem on 30.11.16.
  */
 var answer = parseInt(Math.random() * 100);
-var count = 1;
+var countOfAttempts = 1;
+
+var btn = document.createElement ('input');
+btn.type = 'button';
+btn.id = 'btnPlayAgain';
+btn.value = 'Play again!';
+btn.className = 'btn btn-default';
+btn.onclick = function newGame() {
+    var answerButton = document.getElementById('submit'),
+        congratsElement = document.getElementById('congrats'),
+        playAgainButton = document.getElementById("btnPlayAgain");
+    congratsElement.innerHTML = '';
+    countOfAttempts = 1;
+    answer = parseInt(Math.random() * 100);
+    answerButton.removeAttribute("data-toggle");
+    answerButton.setAttribute('disabled', 'disabled');
+    playAgainButton.parentNode.removeChild(playAgainButton);
+};
+
 function playGuess() {
-    var right = document.getElementById('congrats'),
-        userAnswer = document.getElementById("numberUser").value,
-        newGame = document.getElementById('submit');
-    userAnswer = parseInt(userAnswer);
-    if (answer === null) {
-        document.getElementById('numberUser').value = '';
-        right.innerHTML = '';
-        count = 1;
-        answer = parseInt(Math.random() * 100);
-        newGame.innerHTML = 'Answer';
-        newGame.removeAttribute("data-toggle");
+    var congratsElement = document.getElementById('congrats'),
+        userAnswerValue = document.getElementById("numberUser").value,
+        hint = document.getElementById("hintsAndResult"),
+        answerButton = document.getElementById('submit');
+
+    userAnswerValue = parseInt(userAnswerValue);
+    answerButton.setAttribute('data-toggle', 'modal');
+    if (userAnswerValue > answer) {
+        hint.innerHTML = 'Too much';
+        countOfAttempts++;
+    } else if (userAnswerValue < answer) {
+        hint.innerHTML = 'Too low';
+        countOfAttempts++;
+    } else if (userAnswerValue == answer) {
+        congratsElement.innerHTML = 'Congratulations';
+        hint.innerHTML = 'You are right. You guessed using ' + countOfAttempts + ' attempts';
+        document.getElementById ('buttonPlay').appendChild (btn);
     } else {
-        newGame.setAttribute('data-toggle', 'modal');
-        var check = document.getElementById("cnt");
-        if (userAnswer > answer) {
-            check.innerHTML = 'Too much';
-            count++;
-        } else if (userAnswer < answer) {
-            check.innerHTML = 'Too low';
-            count++;
-        } else if (userAnswer == answer) {
-            right.innerHTML = 'Congratulations';
-            check.innerHTML = 'You are right. You guessed using ' + count + ' attempts';
-            var right2 = document.getElementById('submit');
-            right2.innerHTML = 'Play again';
-            answer = null;
-        } else {
-            check.innerHTML = 'You must enter the number';
-        }
-        document.getElementById('numberUser').value = '';
+        hint.innerHTML = 'You must enter the number';
     }
+    document.getElementById('numberUser').value = '';
 }
 
+
 function startGame() {
-    var visible = document.getElementById('game').hidden,
-        vis = document.getElementById('strtGame'),
+    var gameHidden = document.getElementById('game').hidden,
+        startOrStopGameButton = document.getElementById('strtGame'),
         game = document.getElementById('game');
-    if (visible) {
+    if (gameHidden) {
         game.removeAttribute("hidden");
-        vis.innerHTML = 'Stop game';
+        startOrStopGameButton.innerHTML = 'Stop game';
     } else {
         game.setAttribute("hidden", "hidden");
-        vis.innerHTML = 'Start game';
+        startOrStopGameButton.innerHTML = 'Start game';
     }
 }
 
 function checkInputs() {
-    var usAns = document.getElementById('numberUser').value,
-        removeAttr = document.getElementById('submit');
-    if(usAns.length != 0) {
-        removeAttr.removeAttribute("disabled");
+    var userAnswerValue = document.getElementById('numberUser').value,
+        answerButton = document.getElementById('submit');
+    if(userAnswerValue.length != 0) {
+        answerButton.removeAttribute("disabled");
     } else {
-        removeAttr.setAttribute('disabled', 'disabled');
+        answerButton.setAttribute('disabled', 'disabled');
     }
 }

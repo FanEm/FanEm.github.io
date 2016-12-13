@@ -70,30 +70,12 @@
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 id="congrats"></h4>
-                    <div id="cnt"></div>
+                    <div id="hintsAndResult"></div>
                 </div>
             </div>
         </div>
     </div>
-   <!-- <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Guess</h4>
-                </div>
-                <div class="modal-body">
-                    <h5 class="modal-title">Enter the number from 1 to 100</h5>
-                    <input type="text" id="usrNumber">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <a> <button type="button" class="btn btn-primary" >OK</button> </a>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <!-- Example row of columns -->
+    <!-- Row of columns -->
     <div class="row featurette">
         <div class="col-6 col-sm-6 col-lg-6">
             <img class="img-circle img-responsive" src="images/newguess.jpg">
@@ -102,7 +84,7 @@
             <p>
                 You must guess the number using the least amount of attemps.
             </p>
-            <a> <button type="button" class="btn btn-lg btn-primary" id="strtGame" onclick="startGame()">Start game</button></a>
+            <a> <button type="button" class="btn btn-primary" id="strtGame" onclick="startGame()">Start game</button></a>
             <div id="game" hidden>
                 <br><br>
                 <p>
@@ -110,7 +92,9 @@
                 </p>
                 <input type="text" id="numberUser" autocomplete="off" autofocus onkeyup="checkInputs()">
                 <br><br>
-                <a> <button type="button" class="btn btn-lg btn-primary" id="submit" data-toggle="modal" data-target=".bs-example-modal-sm" onclick="playGuess();" disabled>Answer</button></a>
+                <div id="buttonPlay">
+                    <a> <button type="button" class="btn btn-primary" id="submit" data-toggle="modal" data-target=".bs-example-modal-sm" onclick="playGuess();" disabled>Answer</button></a>
+                </div>
                 <br>
             </div>
         </div>

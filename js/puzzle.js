@@ -1,8 +1,6 @@
 /**
  * Created by fanem on 30.11.16.
  */
-var count;
-
 var btn = document.createElement ('input');
 btn.type = 'button';
 btn.id = 'btnPlayAgain';
@@ -15,10 +13,10 @@ btn.onclick = function newGame() {
     newGameRemoveAttribute('4');
     newGameRemoveAttribute('5');
     newGameRemoveAttribute('6');
-    var removeAttr = document.getElementById('submit'),
-        deleteButton = document.getElementById("btnPlayAgain");
-    removeAttr.setAttribute('disabled', 'disabled');
-    deleteButton.parentNode.removeChild(deleteButton);
+    var answerButton = document.getElementById('submit'),
+        playAgainButton = document.getElementById("btnPlayAgain");
+    answerButton.setAttribute('disabled', 'disabled');
+    playAgainButton.parentNode.removeChild(playAgainButton);
 };
 
 function askQuestion(textBoxId, answer) {
@@ -27,13 +25,14 @@ function askQuestion(textBoxId, answer) {
 
     var iconError = document.createElement('span');
     iconError.className = 'glyphicon glyphicon-remove';
+
     var userAnswer = document.getElementById(textBoxId).getElementsByTagName("input")[0],
         addIconOk = document.getElementById(textBoxId),
         addIconError = document.getElementById(textBoxId);
-        userAnswer.value = userAnswer.value.toLowerCase();
+
+    userAnswer.value = userAnswer.value.toLowerCase();
     if (userAnswer.value == answer) {
         addIconOk.appendChild(iconOk);
-        count++;
     } else {
         addIconError.appendChild(iconError);
     }
@@ -41,38 +40,36 @@ function askQuestion(textBoxId, answer) {
 }
 
 function playPuzzle() {
-    count = 0;
     askQuestion('1', 'mountain');
     askQuestion('2', 'teeth');
     askQuestion('3', 'wind');
     askQuestion('4', 'fish');
     askQuestion('5', 'time');
     askQuestion('6', 'egg');
-    var myP = document.getElementById("cnt");
-    myP.innerHTML = 'Number of correct answers: ' + count;
-    var removeAttr = document.getElementById('submit');
-    removeAttr.setAttribute('disabled', 'disabled');
+    var answerButton = document.getElementById('submit');
+    answerButton.setAttribute('disabled', 'disabled');
 }
 
 function newGameRemoveAttribute(textBoxId) {
     var userAnswer = document.getElementById(textBoxId).getElementsByTagName("input")[0],
-        ef = document.getElementsByClassName("glyphicon");
+        glyphIcon = document.getElementsByClassName("glyphicon");
     userAnswer.value = '';
-    ef[0].parentNode.removeChild(ef[0]);
+    glyphIcon[0].parentNode.removeChild(glyphIcon[0]);
 }
 
 function checkInputs() {
-    var usAns1 = document.getElementById('userAnswer1').value,
-        usAns2 = document.getElementById('userAnswer2').value,
-        usAns3 = document.getElementById('userAnswer3').value,
-        usAns4 = document.getElementById('userAnswer4').value,
-        usAns5 = document.getElementById('userAnswer5').value,
-        usAns6 = document.getElementById('userAnswer6').value,
-        removeAttr = document.getElementById('submit');
+    var userAnswer1 = document.getElementById('userAnswer1').value,
+        userAnswer2 = document.getElementById('userAnswer2').value,
+        userAnswer3 = document.getElementById('userAnswer3').value,
+        userAnswer4 = document.getElementById('userAnswer4').value,
+        userAnswer5 = document.getElementById('userAnswer5').value,
+        userAnswer6 = document.getElementById('userAnswer6').value,
+        answerButton = document.getElementById('submit');
 
-    if(usAns1.length != 0 && usAns2.length != 0 && usAns3.length != 0 && usAns4.length != 0 && usAns5.length != 0 && usAns6.length != 0) {
-        removeAttr.removeAttribute("disabled");
+    if(userAnswer1.length != 0 && userAnswer2.length != 0 && userAnswer3.length != 0 &&
+        userAnswer4.length != 0 && userAnswer5.length != 0 && userAnswer6.length != 0) {
+        answerButton.removeAttribute("disabled");
     } else {
-        removeAttr.setAttribute('disabled', 'disabled');
+        answerButton.setAttribute('disabled', 'disabled');
     }
 }
