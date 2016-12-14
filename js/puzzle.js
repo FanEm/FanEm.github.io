@@ -7,19 +7,21 @@ btn.id = 'btnPlayAgain';
 btn.value = 'Play again!';
 btn.className = 'btn btn-default';
 btn.onclick = function newGame() {
-    newGameRemoveAttribute('1');
-    newGameRemoveAttribute('2');
-    newGameRemoveAttribute('3');
-    newGameRemoveAttribute('4');
-    newGameRemoveAttribute('5');
-    newGameRemoveAttribute('6');
+    newGameRemoveAttribute('1', 'userAnswer1');
+    newGameRemoveAttribute('2', 'userAnswer2');
+    newGameRemoveAttribute('3', 'userAnswer3');
+    newGameRemoveAttribute('4', 'userAnswer4');
+    newGameRemoveAttribute('5', 'userAnswer5');
+    newGameRemoveAttribute('6', 'userAnswer6');
+
     var answerButton = document.getElementById('submit'),
         playAgainButton = document.getElementById("btnPlayAgain");
+
     answerButton.setAttribute('disabled', 'disabled');
     playAgainButton.parentNode.removeChild(playAgainButton);
 };
 
-function askQuestion(textBoxId, answer) {
+function askQuestion(textBoxId, answer, inputID) {
     var iconOk = document.createElement('span');
     iconOk.className = 'glyphicon glyphicon-ok';
 
@@ -28,33 +30,41 @@ function askQuestion(textBoxId, answer) {
 
     var userAnswer = document.getElementById(textBoxId).getElementsByTagName("input")[0],
         addIconOk = document.getElementById(textBoxId),
-        addIconError = document.getElementById(textBoxId);
+        addIconError = document.getElementById(textBoxId),
+        inputsID = document.getElementById(inputID);
 
     userAnswer.value = userAnswer.value.toLowerCase();
+
     if (userAnswer.value == answer) {
         addIconOk.appendChild(iconOk);
     } else {
         addIconError.appendChild(iconError);
     }
+
     document.getElementById ('buttonPlay').appendChild (btn);
+    inputsID.setAttribute('disabled', 'disabled');
 }
 
 function playPuzzle() {
-    askQuestion('1', 'mountain');
-    askQuestion('2', 'teeth');
-    askQuestion('3', 'wind');
-    askQuestion('4', 'fish');
-    askQuestion('5', 'time');
-    askQuestion('6', 'egg');
+    askQuestion('1', 'mountain', 'userAnswer1');
+    askQuestion('2', 'teeth', 'userAnswer2');
+    askQuestion('3', 'wind', 'userAnswer3');
+    askQuestion('4', 'fish', 'userAnswer4');
+    askQuestion('5', 'time', 'userAnswer5');
+    askQuestion('6', 'egg', 'userAnswer6');
+
     var answerButton = document.getElementById('submit');
     answerButton.setAttribute('disabled', 'disabled');
 }
 
-function newGameRemoveAttribute(textBoxId) {
+function newGameRemoveAttribute(textBoxId, inputID) {
     var userAnswer = document.getElementById(textBoxId).getElementsByTagName("input")[0],
-        glyphIcon = document.getElementsByClassName("glyphicon");
+        glyphIcon = document.getElementsByClassName("glyphicon"),
+        inputsID = document.getElementById(inputID);
+
     userAnswer.value = '';
     glyphIcon[0].parentNode.removeChild(glyphIcon[0]);
+    inputsID.removeAttribute('disabled');
 }
 
 function checkInputs() {
