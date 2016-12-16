@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Puzzle">
+    <meta name="author" content="FanEm">
 
-    <title>Guess multiplayer</title>
+    <title>Games</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -16,11 +16,9 @@
     <!-- Custom styles for this template -->
     <link href="css/starter-template.css" rel="stylesheet">
     <link href="css/sticky-footer.css" rel="stylesheet">
+    <link href="css/games.css" rel="stylesheet">
 
     <link rel="icon" type="image/png" href="images/favicon.ico">
-
-    <script type="text/javascript" src="js/guess2.js"></script>
-
 </head>
 
 <body>
@@ -65,43 +63,37 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="container">
     <div class="starter-template">
-        <h1>Guess multiplayer</h1>
+        <h1 align="left">Games <small>Choose the game</small></h1>
     </div>
-    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 id="congrats"></h4>
-                    <div id="hintsAndResult"></div>
-                </div>
-            </div>
+    <!-- Row of columns -->
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="images/guess.jpg" class="logo">
+            <blockquote>
+                <h4>Puzzle</h4>
+                <p> Guess 6 interesting puzzle from Lord of the Ring</p>
+            </blockquote>
+            <a class="semi-transparent-button" href="bootpuzzle.html">Play puzzle</a>
+        </div>
+        <div class="col-sm-4">
+            <img src="images/newguess.jpg" class="logo">
+            <blockquote>
+                <h4>Guess</h4>
+                <p>You must guess the number using the least amount of attemps</p>
+            </blockquote>
+            <a class="semi-transparent-button" href="bootguess.html">Play guess</a>
+        </div>
+
+        <div class="col-sm-4">
+            <img src="images/newguess2.jpeg" class="logo">
+            <blockquote>
+                <h4>Guess multiplayer</h4>
+                <p>Two players in turn guess the number using the least amount of attemps</p>
+            </blockquote>
+            <a class="semi-transparent-button" href="bootguess2.html">Play gm</a>
         </div>
     </div>
-    <!-- Example row of columns -->
-    <div class="row featurette">
-        <div class="col-6 col-sm-6 col-lg-6">
-            <img class="img-circle img-responsive" src="images/newguess2.jpeg">
-        </div>
-        <div class="col-6 col-sm-6 col-lg-6">
-            <p>
-                Two players in turn guess the number using the least amount of attemps. Winner is the one who first guesses.
-            </p>
-            <a> <button type="button" class="btn btn-primary" id="strtGame" onclick="startGame()">Start game</button></a>
-            <div id="game" hidden>
-                <br><br>
-                <p id="player">
-                </p>
-                <input type="text" id="numberUser" autocomplete="off" autofocus onkeyup="($('#submit').removeAttr('disabled'))">
-                <br><br>
-                <div id="buttonPlay">
-                    <a> <button type="button" class="btn btn-primary" id="submit" data-toggle="modal" data-target=".bs-example-modal-sm" onclick="playGuess()" disabled>Answer</button></a>
-                </div>
-                <br>
-            </div>
-        </div>
-    </div>
-    <br>
+
 </div>
 
 <div id="footer">

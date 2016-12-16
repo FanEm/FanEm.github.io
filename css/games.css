@@ -1,0 +1,32 @@
+.logo {
+    display:block;
+    margin:0 auto;
+    /*vertical-align: middle;*/
+    border-radius:50%;
+    width: 200px;
+}
+
+.semi-transparent-button {
+    display: block;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 8px;
+    width: 80%;
+    max-width: 100px;
+    background: #fff; /* запасной цвет для старых браузеров */
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 50px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-out;
+}
+.semi-transparent-button:hover,
+.semi-transparent-button:focus,
+.semi-transparent-button:active {
+    background: #bbb;
+    text-decoration: none;
+    color: #000;
+    transition: all 0.5s ease-in;
+}
