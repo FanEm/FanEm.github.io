@@ -7,63 +7,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" href="images/favicon.ico">
 
-    <title>Hello there!</title>
+    <title>FanEm</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/cover.css" rel="stylesheet">
+    <link href="css/starter-template.css" rel="stylesheet">
+    <link href="css/sticky-footer.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <link href="css/map.css" rel="stylesheet">
 
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
-    <script type="text/javascript">
-        var moscow_map,
-            piter_map;
+    <title>Hello there!</title>
 
-        ymaps.ready(function(){
-            moscow_map = new ymaps.Map("first_map", {
-                center: [55.76, 37.64],
-                zoom: 10
-            });
-            piter_map = new ymaps.Map(document.getElementsByTagName('p')[2], {
-                center: [59.94, 30.32],
-                zoom: 9
-            });
-        });
-    </script>
+    <!-- Если вы используете API локально, то в URL ресурса необходимо указывать протокол в стандартном виде (http://...)-->
+    <script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script src="js/api.js" type="text/javascript"></script>
 
 </head>
 
 <body>
-
-<div class="site-wrapper">
-    <div class="site-wrapper-inner">
-        <div class="cover-container">
-            <div class="masthead clearfix">
-                <div class="inner">
-                    <h3 class="masthead-brand">FanEm</h3>
-                    <ul class="nav masthead-nav">
-                        <li><a href="games.html">Games</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="inner cover">
-                <div id="map" style="width: 600px; height: 400px"></div>
-
-            </div>
-
-            <div class="mastfoot">
-                <div class="inner">
-                    <p>&copy; Copyright 2016</p>
-                </div>
-            </div>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Personal site</a>
         </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Games <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bootpuzzle.html">Puzzle</a></li>
+                        <li><a href="bootguess.html">Guess</a></li>
+                        <li><a href="bootguess2.html">Guess multiplayer</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Studying <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="bootwords.html">Word</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
     </div>
 </div>
 
+<div class="container">
+    <div class="starter-template">
+        <h1>Personal site</h1>
+    </div>
+    <!-- Example row of columns -->
+    <div class="row featurette">
+        <div class="col-md-6">
+            <p>bla-bla</p>
+        </div>
+        <div class="col-md-6">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div>
+        <p class="text-muted">&copy; Copyright 2017</p>
+    </div>
+</div>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
